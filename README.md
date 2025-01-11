@@ -24,7 +24,7 @@ If you want to check that your data import was successful, you can use the API w
 
 - `PBF_Path`: Which OSM extract to import from the .pbf file inside the container. It cannot be used together with `PBF_URL`.
 
-- `REPLICATION_URL`: Where to get updates from, for example, Geofabrik's update for Jordan extract are available at `https://download.geofabrik.de/asia/jordan-updates`, other places at Geofabrik follow the pattern `https://download.geofabrik.de/<CONTENENT>/<COUNTRY-updates>/`.
+- `REPLICATION_URL`: Where to get updates from, for example, Geofabrik's update for Jordan extract is available at `https://download.geofabrik.de/asia/jordan-updates`, other places at Geofabrik follow the pattern `https://download.geofabrik.de/<CONTENENT>/<COUNTRY-updates>/`.
 
 ## How to use the API:
 The two main endpoints used in OpenStreetMap Nominatim are: `/search` for turning addresses into geographic coordinates (geocoding), and `/reverse` for the opposite process (reverse geocoding).
@@ -34,12 +34,12 @@ To convert an address into latitude and longitude in OSM Nominatim:
 
 Endpoint `GET`: `https://nominatim.openstreetmap.org/search?q={address_string}&format={output_format}`.
 
-- `{address_string}` is the address you are trying to geocode. Try to include as much information as you can including the country, city, and postal code.
+- `{address_string}` is the address you are trying to geocode. Try to include as much information as possible, including the country, city, and postal code.
 
 - `{output_format}` determines the structure of the response and must be one of `xml`, `json`, `jsonv2`, `geojson`, `geocodejson`, the default being `jsonv2`.
 
 
-#### Next, we'll attempt to geocode the location of Amman, Khalda Cirlce:
+#### Next, we'll attempt to geocode the location of Amman, Khalda Circle:
 
 Method `GET`: https://nominatim.openstreetmap.org/search?q=amman+khalda+circle&format=jsonv2
 
@@ -70,12 +70,12 @@ Output:
 ]
 ```
 
-#### To geocoding using our locally server use: <br>
+#### To geocoding using our local server use: <br>
 Method `GET`: http://localhost:8080/search?q=amman+khalda+circle&format=jsonv2 . The output will be the same.
 
 ## OpenStreetMap reverse geocoding example
 
-Let's try the same thing but backwards, and reverse geocode the coordinates `"lat": "31.994694000000003"`, `"lon": "35.83034305615034"` that were returned in the earlier example.
+Let's try the same thing but backward, and reverse geocode the coordinates `"lat": "31.994694000000003"`, `"lon": "35.83034305615034"` that were returned in the earlier example.
 
 Endpoint `GET`: `https://nominatim.openstreetmap.org/reverse?lat={lat}&lon={lon}&format={output_format}`
 
@@ -121,7 +121,7 @@ Output:
   ]
 }
 ```
-#### To reverse geocoding using our locally server use: <br>
+#### To reverse geocoding using our local server use: <br>
 Method `GET`: http://localhost:8080/reverse?lat=31.994694000000003&lon=35.83034305615034&format=jsonv2 . The output will be the same.
 
 > [!NOTE]
